@@ -1,0 +1,7 @@
+{
+  "name": "anime-jikan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
