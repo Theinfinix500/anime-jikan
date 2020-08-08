@@ -9,13 +9,17 @@ import { Anime } from 'src/app/models/SeasonAnime.model';
   styleUrls: ['./season.page.scss'],
 })
 export class SeasonPage implements OnInit {
-  public animeList: Array<Anime> = [];
+  public leftSideList: Array<Anime> = [];
+  public rightSideList: Array<Anime> = [];
 
   constructor(private animeService: AnimeService) {}
 
   ngOnInit() {
     this.animeService
       .getAnimeBySeason(2018, SeasonEnum.WINTER)
-      .subscribe((animes) => (this.animeList = animes));
+      .subscribe(({ leftSideData, rightSideData }) => {
+        this.leftSideList = leftSideData;
+        this.rightSideList = rightSideData;
+      });
   }
 }
