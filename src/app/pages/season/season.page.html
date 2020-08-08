@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>season</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-virtual-scroll [items]="animeList" [approxItemHeight]="'1000px'">
+    <ion-card *virtualItem="let anime;let itemBounds = bounds">
+      <ion-img [src]="anime.image_url" alt="anime_img"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>{{anime.airing_start | date}}</ion-card-subtitle>
+        <ion-card-title> {{anime.title}} </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{anime.synopsis}}
+      </ion-card-content>
+    </ion-card>
+  </ion-virtual-scroll>
+</ion-content>
