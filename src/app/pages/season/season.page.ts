@@ -22,4 +22,8 @@ export class SeasonPage implements OnInit {
         this.rightSideList = rightSideData;
       });
   }
+
+  showDetails(anime: Anime) {
+    console.log(anime);
+  }
 }
