@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
 import { AnimeService } from 'src/app/services/anime.service';
 import { SeasonEnum } from 'src/app/enums/Season';
 import { Anime } from 'src/app/models/SeasonAnime.model';
+import { AnimeDetailsComponent } from './anime-details/anime-details.component';
 
 @Component({
   selector: 'app-season',
@@ -12,7 +15,10 @@ export class SeasonPage implements OnInit {
   public leftSideList: Array<Anime> = [];
   public rightSideList: Array<Anime> = [];
 
-  constructor(private animeService: AnimeService) {}
+  constructor(
+    private animeService: AnimeService,
+    private modalController: ModalController
+  ) {}
 
   ngOnInit() {
     this.animeService
@@ -25,5 +31,12 @@ export class SeasonPage implements OnInit {
 
   showDetails(anime: Anime) {
     console.log(anime);
+  }
+
+  async showAnimeDetails() {
+    const modal = await this.modalController.create({
+      component: AnimeDetailsComponent,
+    });
+    return await modal.present();
   }
 }

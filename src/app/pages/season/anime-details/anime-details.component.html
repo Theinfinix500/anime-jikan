@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Anime details</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="arrow-redo-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>God of high school</h1>
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
+    architecto veniam quos odio consectetur at. ...
+  </p>
+
+  <ion-segment
+    (ionChange)="segmentChanged($event)"
+    color="secondary"
+    [value]="segment"
+  >
+    <ion-segment-button value="episodes">
+      <ion-label>Episodes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="details">
+      <ion-label>Details</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div class="segment-content">
+    <ng-container [ngSwitch]="segment">
+      <div class="segment-episodes" *ngSwitchCase="'episodes'">
+        <ion-list>
+          <ion-item *ngFor="let item of [].constructor(13); let i = index">
+            <span class="episode-number" slot="start">{{ i + 1 }}</span>
+            <ion-label>Episode title</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="segment-details" *ngSwitchCase="'details'">Details</div>
+    </ng-container>
+  </div>
+</ion-content>
