@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit } from "@angular/core";
+import { ModalController } from "@ionic/angular";
 
-import { AnimeService } from 'src/app/services/anime.service';
-import { SeasonEnum } from 'src/app/enums/Season';
-import { Anime } from 'src/app/models/SeasonAnime.model';
-import { AnimeDetailsComponent } from './anime-details/anime-details.component';
+import { AnimeService } from "src/app/services/anime.service";
+import { SeasonEnum } from "src/app/enums/Season";
+import { Anime } from "src/app/models/SeasonAnime.model";
+import { AnimeDetailsComponent } from "./anime-details/anime-details.component";
 
 @Component({
-  selector: 'app-season',
-  templateUrl: './season.page.html',
-  styleUrls: ['./season.page.scss'],
+  selector: "app-season",
+  templateUrl: "./season.page.html",
+  styleUrls: ["./season.page.scss"],
 })
 export class SeasonPage implements OnInit {
   public leftSideList: Array<Anime> = [];
@@ -26,6 +26,7 @@ export class SeasonPage implements OnInit {
       .subscribe(({ leftSideData, rightSideData }) => {
         this.leftSideList = leftSideData;
         this.rightSideList = rightSideData;
+        console.log(leftSideData);
       });
   }
 

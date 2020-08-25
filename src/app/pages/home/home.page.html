@@ -5,5 +5,15 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let anime of data">
+      <ion-card>
+        <ion-img [src]="anime.image_url" alt="anime_img"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>{{anime.airing_start | date}}</ion-card-subtitle>
+          <ion-card-title> {{anime.title}} </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
